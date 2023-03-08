@@ -33,6 +33,16 @@ def password_encoder(password):
     return encoded_password
 
 
+# Name: Dieulinh Nguyen
+def password_decoder(password):  # Function to decode password
+    decoded_password = ""
+    for digit in password:
+        digit_int = int(digit) - 3
+        digit_str = str(digit_int)
+        decoded_password += digit_str
+    return decoded_password
+
+
 if __name__ == '__main__':
     print_menu()
     option = int(input('Please enter an option: '))
@@ -40,12 +50,14 @@ if __name__ == '__main__':
         if option == 1:
             password = str(input('Please enter your password to encode: '))
             new_password = password_encoder(password)
+            decoded_password = password_decoder(password)
             print('Your password has been encoded and stored!')
             print_menu()
             option = int(input('Please enter an option: '))
 
         elif option == 2:
             print(f'The encoded password is {new_password} and the original password is {password}')
+            print(f'The decoded password is {decoded_password} and the original password is {password}')
             print_menu()
             option = int(input('Please enter an option: '))
 
